@@ -1,15 +1,16 @@
-// BY8001 MP3 Player Library, Example Program 1; Sequential Playback Demo 
-// Date: June 2015
-// Author: borland of Arduino forum 
-// No affiliation with Balway Electronics Technology or Shenzhen Electronics Technology Ltd.
-// Released in public domain.
+// Blindmobile Firmware v0.1
 // 
-// This example sketch uses SoftwareSerial to communnicate with BY8001
-// and sequentially plays tracks, & sends track file names to Arduino IDE for display on serial monitor 
+// Hardware:
+// Tested with Arduino Nano/Uno, with 5V power source. Connections:
 //
-// Recommend module ABC keypad mode set to '111' in order to support all serial commands 
-// Uses Arduino's hardware serial port to connect to PC
-
+// Arduino.pin_9      BY8001.pin_2
+// Arduino.pin_10     resistor        BY8001.pin_3
+//
+// The power source, if it's coming from the Buck/Step up must have a decoupling cap and
+// this must be pre-charged before GSM module boots, otherwise it will fail to completly boot
+// and will BOD reset in a loop.
+//
+// From borland, kept for reference:
 // Requires 3.3V TTL level RX/TX such as Ardiuno Mini Pro (8Mhz, 3.3V)
 // can use 5V/3.3V level shifter or try 1K ohm resistor on TX line as shown in BY8001 datasheet
 // Connect Arduino's RX pin to BY8001's TX pin 3
@@ -17,7 +18,6 @@
 //
 
 #include <SoftwareSerial.h>
-//#include <BY8001_2.h>
 
 #define MP3_RX_PIN 10
 #define MP3_TX_PIN 9
